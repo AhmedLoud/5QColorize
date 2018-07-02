@@ -45,3 +45,4 @@ class AppApiConnection:
     headers = {"Content-type": "application/json", "cachee-control": "no-cache"}
     self.connection.request('POST',self.signal_resource_url,signal_json,headers)
     response = self.connection.getresponse()
+    return response.read()
