@@ -1,6 +1,5 @@
 class Signal:
   def __init__(self,
-  id,
   userId,
   zoneId,
   color,
@@ -13,7 +12,7 @@ class Signal:
   clientName,
   message,
   name):
-    self.id = id
+    self.id = None
     self.userId = userId
     self.zoneId= zoneId
     self.color = color
@@ -32,7 +31,19 @@ class Signal:
     print('id:', self.id)
     print('userId', self.userId)
 
-s = Signal(0,9,25,'#FF0000','SET_COLOR',False,False,False,False,'DK5QPID','pythonScript','',
-'')
-s.logSignal()
+  def toJSON(self):
+    return {
+      'userId': self.userId,
+      'zoneId': self.zoneId,
+      'color': self.color,
+      'effect': self.effect,
+      'isArchived': self.isArchived,
+      'isMuted': self.isMuted,
+      'isRead': self.isRead,
+      'shouldNotify': self.shouldNotify,
+      'pid': self.pid,
+      'clientName': self.clientName,
+      'message': self.message,
+      'name': self.name
+    }
 
